@@ -14,7 +14,7 @@ app.url_map.strict_slashes = False
 CORS(app)
 
 # Create the jackson family object
-jackson_family = FamilyStructure("Jackson")
+jackson_family = FamilyStructure('Jackson')
 
 
 # Handle/serialize errors like a JSON object
