@@ -43,9 +43,9 @@ def handle_add_member():
     jackson_family.add_member(member)
     return jsonify({"msg": "Member added successfully"}), 200
 
-@app.route('/member/<int:member_id>', methods=['GET'])
-def get_member(member_id):
-    member = jackson_family.get_member(member_id)
+@app.route('/member/<int:id>', methods=['GET'])
+def get_member(id):
+    member = jackson_family.get_member(id)
     return jsonify(member), 200
 
 @app.route('/members/<int:id>', methods=['DELETE'])
