@@ -40,18 +40,18 @@ def handle_add_member():
     if not member:
         return jsonify({"error": "Missing JSON body"}), 400
 
-    jackson_family.add_member(member)
-    return jsonify({"msg": "Member added successfully"}), 200
+    added_member = jackson_family.add_member(member)
+    return jsonify(added_member), 200
 
-@app.route('/member/<int:id>', methods=['GET'])
-def get_member(id):
-    member = jackson_family.get_member(id)
+@app.route('/members/<int:member_id>', methods=['GET'])
+def get_member(member_id):
+    member = jackson_family.get_member(member_id)
     return jsonify(member), 200
 
 @app.route('/members/<int:id>', methods=['DELETE'])
 def handle_delete_member(id):
     jackson_family.delete_member(id)
-    return jsonify({"msg": "Member deleted successfully"}), 200
+    return jsonify({"done": True}), 200
 
 # This only runs if `$ python src/app.py` is executed
 if __name__ == '__main__':
